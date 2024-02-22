@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index(name=None):
     return render_template('index.html', name=name)
 
-@app.route("/api/")
+@app.route("/api", methods=['GET', 'POST'])
 def api():
     a=[{ "id":1,
         "name":"Alex",
