@@ -1,9 +1,12 @@
 from flask import Flask
 import json
 from flask import render_template
+import psycopg2
 
 app = Flask(__name__)
-
+conn = psycopg2.connect(dbname="demo", user="airfllow", password="airflow", host="188.120.243.218", port="5432")
+print("Подключение установлено")
+conn.close()
 @app.route("/")
 def index(name=None):
     return render_template('index.html', name=name)
